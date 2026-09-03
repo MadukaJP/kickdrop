@@ -1,23 +1,6 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-
-const products = [
-  {
-    id: 1,
-    name: "Air Runner Low",
-    price: "₦45,000",
-  },
-  {
-    id: 2,
-    name: "Street High Top",
-    price: "₦52,000",
-  },
-  {
-    id: 3,
-    name: "Air Jordan 4",
-    price: "₦32,000",
-  },
-];
+import { products } from "../data/products";
 
 const ProductList = () => {
   return (
