@@ -22,3 +22,5 @@ export const products = [
   { id: 5, name: "Court Glide", price: "₦48,000" },
   { id: 6, name: "Retro Bounce", price: "₦55,000" },
 ];
+
+
