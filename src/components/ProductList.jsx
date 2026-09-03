@@ -12,6 +12,11 @@ const products = [
     name: "Street High Top",
     price: "₦52,000",
   },
+  {
+    id: 3,
+    name: "Air Jordan 4",
+    price: "₦32,000",
+  },
 ];
 
 const ProductList = () => {
