@@ -2,14 +2,16 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import { products } from "../data/products";
 
-const ProductList = () => {
+const ProductList = ({ onAddToCart }) => {
   return (
     <div className="product-list">
-      {products.map((product) => (
+      {products.map((sneaker) => (
         <ProductCard
-          key={product.id}
-          name={product.name}
-          price={product.price}
+          key={sneaker.id}
+          id={sneaker.id}
+          name={sneaker.name}
+          price={sneaker.price}
+          onAddToCart={onAddToCart}
         />
       ))}
     </div>

@@ -8,6 +8,7 @@
 .header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding-bottom: 12px;
   margin-bottom: 16px;
   border-bottom: 1px solid #eee;
@@ -17,6 +18,15 @@
   font-size: 20px;
   font-weight: 700;
   color: #111;
+}
+
+.cart-badge {
+  background: #ff5a1f;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 2px 8px;
 }
 
 .product-list {
@@ -50,5 +60,21 @@
 .product-price {
   font-size: 14px;
   color: #555;
-  margin: 0;
+  margin: 0 0 10px;
+}
+
+.product-card button {
+  width: 100%;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background: #ff5a1f;
 }

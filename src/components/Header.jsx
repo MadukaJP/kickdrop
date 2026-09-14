@@ -1,9 +1,10 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({ cartCount }) => {
   return (
-    <header className="header">
+      <header className="header">
       <span className="logo">KickDrop</span>
+      <span className="cart-badge">{cartCount}</span>
     </header>
   );
 };
