@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ProductCard = ({ name, price, onAddToCart }) => {
+const ProductCard = ({ id, name, price, onAddToCart }) => {
   return (
     <div className="product-card">
       <div className="product-image-placeholder" />
-      <p className="product-name">{name}</p>
-      <p className="product-price">{price}</p>
+      <Link to={`/product/${id}`} className="product-name">{name}</Link>
+      <p className="product-price">${price}</p>
       <button onClick={onAddToCart}>Add to cart</button>
     </div>
   );

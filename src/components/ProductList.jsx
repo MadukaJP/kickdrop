@@ -1,8 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-import { products } from "../data/products";
 
-const ProductList = ({ onAddToCart }) => {
+const ProductList = ({ onAddToCart, products }) => {
   return (
     <div className="product-list">
       {products.map((sneaker) => (

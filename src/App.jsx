@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
-import Header from "./components/Header"
+import Header from "./components/Header";
 import ProductDetails from "./pages/ProductDetails";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
     <div className="app">
       <Header cartCount={cartCount} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home onAddToCart={handleAddToCart} />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
