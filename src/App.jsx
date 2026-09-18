@@ -13,13 +13,22 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [recentlyViewed, setRecentlyViewed] = useState([]);
 
-
-  const cartCount = cartItems.length;
+  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   function handleAddToCart(product) {
     setCartItems((prev) => {
-      return [...prev, product]
-    })
+      const existingItem = prev.find((item) => item.id === product.id);
+
+      if (existingItem) {
+        return prev.map((item) =>
+          item.id === existingItem.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item,
+        );
+      }
+
+      return [...prev, { ...product, quantity: 1 }];
+    });
   }
 
   async function fetchProducts() {
@@ -38,15 +47,24 @@ function App() {
 
   function trackView(product) {
     setRecentlyViewed((prev) => {
-      const withoutProduct = prev.filter(
-        (item) => item.id !== product.id,
-      );
+      const withoutProduct = prev.filter((item) => item.id !== product.id);
 
       const newList = [product, ...withoutProduct];
 
       return newList.slice(0, 4);
-
     });
+  }
+
+  function updateQuantity(id, newQuantity) {
+    setCartItems((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, quantity: newQuantity } : item,
+      ),
+    );
+  }
+
+  function removeItem(id) {
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
   }
 
   useEffect(() => {
@@ -74,7 +92,13 @@ function App() {
           element={<ProductDetails products={products} onView={trackView} />}
         />
 
-        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/cart"
+          element={<Cart items={cartItems} 
+          onUpdateQuantity={updateQuantity}
+          onRemove={removeItem}
+          />}
+        />
       </Routes>
     </div>
   );
