@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { products } from '../data/products';
 
-const ProductDetails = () => {
+const ProductDetails = ({ products, onView }) => {
+
   const { id } = useParams();  
   const product = products.find((item) => item.id === parseInt(id))
+
+  useEffect(() => {
+    onView(product)
+  }, [])
 
   if (!product) {
     return <p>Product not found</p>

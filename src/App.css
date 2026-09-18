@@ -1,4 +1,4 @@
-/* Session 8 starter CSS — previous rules + loading state text. */
+/* Session 9 starter CSS — previous rules + recently viewed section. */
 
 .app {
   max-width: 900px;
@@ -95,4 +95,29 @@
   font-size: 14px;
   padding: 24px 0;
   text-align: center;
+}
+
+.recently-viewed {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.recently-viewed h3 {
+  font-size: 14px;
+  color: #555;
+  margin: 0 0 8px;
+}
+
+.recently-viewed-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.recently-viewed-list span {
+  font-size: 13px;
+  background: #f2f2f2;
+  border-radius: 999px;
+  padding: 4px 12px;
 }
