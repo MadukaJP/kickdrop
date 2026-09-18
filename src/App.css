@@ -1,4 +1,4 @@
-/* Session 9 starter CSS — previous rules + recently viewed section. */
+/* Session 10 starter CSS — previous rules + cart page (row layout, total). */
 
 .app {
   max-width: 900px;
@@ -120,4 +120,43 @@
   background: #f2f2f2;
   border-radius: 999px;
   padding: 4px 12px;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.cart-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.cart-row input {
+  width: 56px;
+  padding: 4px 6px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.cart-row button {
+  background: none;
+  border: none;
+  color: #c0392b;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.cart-total {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: right;
+  margin-top: 8px;
 }

@@ -7,7 +7,7 @@ const ProductCard = ({ id, name, price, onAddToCart }) => {
       <div className="product-image-placeholder" />
       <Link to={`/product/${id}`} className="product-name">{name}</Link>
       <p className="product-price">${price}</p>
-      <button onClick={onAddToCart}>Add to cart</button>
+      <button onClick={() => onAddToCart({id, name, price})}>Add to cart</button>
     </div>
   );
 };

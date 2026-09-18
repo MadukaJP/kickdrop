@@ -8,13 +8,18 @@ import ProductDetails from "./pages/ProductDetails";
 import { API_BASE } from "./api";
 
 function App() {
-  const [cartCount, setCartCount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [recentlyViewed, setRecentlyViewed] = useState([]);
 
-  function handleAddToCart() {
-    setCartCount(cartCount + 1);
+
+  const cartCount = cartItems.length;
+
+  function handleAddToCart(product) {
+    setCartItems((prev) => {
+      return [...prev, product]
+    })
   }
 
   async function fetchProducts() {
@@ -32,11 +37,16 @@ function App() {
   }
 
   function trackView(product) {
-    const withoutProduct = recentlyViewed.filter((item) => item.id !== product.id);
+    setRecentlyViewed((prev) => {
+      const withoutProduct = prev.filter(
+        (item) => item.id !== product.id,
+      );
 
-    const newList = [product, ...withoutProduct, ];
+      const newList = [product, ...withoutProduct];
 
-    setRecentlyViewed(newList.slice(0, 4));
+      return newList.slice(0, 4);
+
+    });
   }
 
   useEffect(() => {
