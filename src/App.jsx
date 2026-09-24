@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Header from "./components/Header";
 import ProductDetails from "./pages/ProductDetails";
 import { API_BASE } from "./api";
+import Admin from "./pages/Admin";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -99,6 +100,13 @@ function App() {
           onRemove={removeItem}
           />}
         />
+
+        <Route
+          path="/admin"
+          element={<Admin products={products} />}
+        />
+
+
       </Routes>
     </div>
   );
